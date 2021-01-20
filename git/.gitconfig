@@ -1,0 +1,8 @@
+[user]
+	email = git@verscheu.re
+	name = Bengt Verscheure
+	signingkey = 056CAB9461D9B143
+[commit]
+	gpgsign = true
+[pull]
+	rebase = false

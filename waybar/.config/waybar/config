@@ -1,0 +1,57 @@
+{
+    "layer": "top",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["network", "pulseaudio", "battery#BAT0", "battery#BAT1", "clock"],
+    "sway/window": {
+        "max-length": 50,
+        "tooltip": false
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-ethernet": " ",
+        "format-wifi": " ",
+        "format-disconnected": " ",
+        "tooltip-format": "Disconnected",
+        "tooltip-format-ethernet": "{ipaddr}",
+        "tooltip-format-wifi": "{essid} - {ipaddr} ({signalStrength}%)",
+        "on-click": "termite --name=__nmtui__ -e nmtui"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "battery#BAT0": {
+        "bat": "BAT0",
+        "adapter": "AC",
+        "states": {
+            "warning": 35,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons":  [" ", " ", " ", " ", " "],
+        "format-charging": "  ",
+        "tooltip": true,
+    },
+    "battery#BAT1": {
+        "bat": "BAT1",
+        "adapter": "AC",
+        "states": {
+            "warning": 35,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons":  [" ", " ", " ", " ", " "],
+        "format-charging": "  ",
+        "tooltip": true,
+    },
+    "clock": {
+        "format": "{:%a %d %b.  %H:%M}",
+        "tooltip": false
+    }
+}
