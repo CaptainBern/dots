@@ -4,7 +4,7 @@
 
 set $mod Mod4
 
-set $terminal termite
+set $terminal alacritty
 set $launcher j4-dmenu-desktop --dmenu='bemenu -i -l 10 -p "run" -P ">" --scrollbar=autohide -n -m -1 --fn="pango:sans-serif 16px" --tb="#000000BF" --tf="#FFFFFF" --fb="#000000BF" --ff="#FFFFFF" --nb="#000000BF" --nf="#FFFFFF" --hb="#1E88E5" --hf="#FFFFFF" --sb="#1E88E5" --sf="#FFFFFF" --scb="#000000BF" --scf="#1E88E5"' --term='termite'
 set $passmenu passmenu -i -l 10 -p "pass" -P ">" --scrollbar=autohide -n -m -1 --fn="pango:sans-serif 16px" --tb="#000000BF" --tf="#FFFFFF" --fb="#000000BF" --ff="#FFFFFF" --nb="#000000BF" --nf="#FFFFFF" --hb="#1E88E5" --hf="#FFFFFF" --sb="#1E88E5" --sf="#FFFFFF" --scb="#000000BF" --scf="#1E88E5"
 
@@ -95,7 +95,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym --release Print exec grim $HOME/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%H_%M-%S).png
 bindsym --release Shift+Print exec grim -g "$(slurp)" $HOME/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%H_%M-%S).png
 
-bindsym $mod+Shift+n exec $terminal --name=__nmtui__ -e nmtui
+bindsym $mod+Shift+n exec $terminal --class __nmtui__ -e nmtui
 
 bindsym $mod+x exec makoctl dismiss
 
@@ -205,8 +205,17 @@ bar {
 xwayland enable
 
 # IO setttings
-input type:touchpad events disabled_on_external_mouse
-input * xkb_numlock enable
+input * {
+	xkb_numlock enable
+}
+
+input type:touchpad {
+	events disabled_on_external_mouse
+}
+
+input type:pointer {
+	accel_profile flat
+}
 
 output * bg $HOME/.wallpapers/firewatch_night.jpg fill
 output eDP-1 pos 0 0
@@ -217,10 +226,9 @@ for_window [app_id="(?i)pavucontrol"] floating enable
 for_window [app_id="__nmtui__"] floating enable
 for_window [app_id="mpv"] floating enable
 
-assign [app_id="__weechat__"] 1
-assign [instance="(?i)spotify"] 2
-assign [app_id="thunderbird"] 3
-assign [app_id="firefox"] 4
+assign [instance="(?i)spotify"] 1
+assign [app_id="thunderbird"] 2
+assign [app_id="firefox"] 3
 
 #######################################
 #             Startup Programs        #
@@ -229,10 +237,9 @@ assign [app_id="firefox"] 4
 # setup wob socket
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 
-exec gammastep
+exec gammastep -l 50.8504:4.34878 -t 6500:3700
 exec mako
 
-exec $terminal --name=__weechat__ -e weechat
 exec spotify
 exec thunderbird
 exec firefox
