@@ -1,0 +1,19 @@
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+
+belak/zsh-utils path:completion
+
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/archlinux
+ohmyzsh/ohmyzsh path:plugins/cp
+ohmyzsh/ohmyzsh path:plugins/sudo
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/colorize
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/git-extras
+ohmyzsh/ohmyzsh path:plugins/gpg-agent
+ohmyzsh/ohmyzsh path:plugins/extract
+
+mafredri/zsh-async
+denysdovhan/spaceship-prompt
