@@ -211,6 +211,7 @@ input * {
 
 input type:touchpad {
 	events disabled_on_external_mouse
+	natural_scroll enabled
 }
 
 input type:pointer {
